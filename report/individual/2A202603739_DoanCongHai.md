@@ -42,84 +42,104 @@ Lăng kính: **Lặp lại** · **Tốn thời gian** · **Cần đọc, tổng 
 
 | Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
 |---:|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | Review Pull Request (PR) lớn (>500 dòng / nhiều file) | Quy trình rõ, tốn nhiều thời gian nhất (~58 phút/PR), ảnh hưởng trực tiếp đến tốc độ merge và release của toàn team | Liệu AI tóm tắt diff có nắm đúng logic nghiệp vụ sâu của hệ thống hay chỉ tóm tắt bề mặt? |
+| 2 | Đối soát incident từ logs, Sentry và commit deploy | Nỗi đau lớn khi có sự cố, MTTR kéo dài gây rủi ro uptime cao | Quyền truy cập và tính bảo mật của dữ liệu log production khi đưa qua AI |
+| 3 | Báo cáo tiến độ tuần và sprint metric cho PM | Quy trình lặp lại hàng tuần, tốn thời gian tổng hợp thủ công từ Jira/GitHub | Một số team chỉ cần dashboard số liệu thô chứ không bắt buộc narrative chi tiết |
 
 ### Problem Card #1
 
 | Trường | Nội dung |
 |---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Job Story | Khi nhận một Pull Request (PR) phức tạp (>500 dòng code hoặc thay đổi trên 10 file), tôi muốn nắm nhanh bản đồ liên kết các thay đổi logic nghiệp vụ, để tập trung review đúng trọng tâm và phát hiện bug tiềm ẩn |
+| Actor | Reviewer (Senior Dev / Peer Dev) chịu trách nhiệm duyệt chất lượng code trước khi merge |
+| Thời điểm / bối cảnh | Trong giờ làm việc khi nhận được mention/notif yêu cầu review PR trước thềm sprint freeze hoặc release |
+| Quy trình hiện tại (3–7 bước) | 1. Mở GitHub PR & đọc mô tả task (3')<br>2. Lướt danh sách files changed để hình dung phạm vi (5')<br>3. Đọc chi tiết từng file code diff & lần theo trace luồng gọi hàm giữa các file (35')<br>4. Kiểm tra test cases và CI status (10')<br>5. Viết comment nhận xét và bấm Approve / Request Changes (5') |
+| Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3: Đọc chi tiết từng file diff và liên kết ngữ cảnh giữa các module (mất ~35 phút, hay bị quá tải nhận thức khi PR lớn) |
+| Impact (nếu không giải thì sao) | PR tồn đọng 2–3 ngày làm chậm chu kỳ release; reviewer dễ duyệt ẩu do mệt mỏi dẫn đến lọt bug logic lên Staging/Production |
+| Success metric (baseline → target) | Baseline: 58 phút/PR lớn → Target: dưới 25 phút/PR; tỷ lệ phát hiện các lỗi kiến trúc/logic không giảm |
+| Phương án không dùng AI | Đặt rule bắt buộc chia nhỏ PR (mỗi PR < 200 dòng code); bắt buộc dùng PR template có visual flow do tác giả tự vẽ; checklist review chuẩn hóa |
+| Giả thuyết về AI (nếu có) | AI phân tích toàn bộ git diff, tự động tạo bản tóm tắt luồng dữ liệu (data flow) thay đổi giữa các file và highlight 3–5 điểm logic trọng yếu cần reviewer chú ý |
+| Cảm nhận nhanh | Workflow |
 
 Quy trình nháp hiện tại:
 
 ```text
+HIỆN TẠI — 58 phút/PR lớn
 
+[1 Mở PR & đọc mô tả: 3'] 
+→ [2 Lướt danh sách file changed: 5'] 
+→ [3 Đọc diff & lần trace luồng hàm giữa các file: 35'] ← BOTTLENECK
+→ [4 Kiểm tra test cases & CI: 10'] 
+→ [5 Comment & Approve/Request changes: 5']
 ```
 
 ### Problem Card #2
 
 | Trường | Nội dung |
 |---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Job Story | Khi hệ thống gặp sự cố cảnh báo lỗi trên Staging/Production, tôi muốn đối soát nhanh giữa error trace (Sentry), log server và các commit vừa deploy gần nhất, để xác định đúng commit gây lỗi mà không phải mở 4 dashboard riêng rẽ |
+| Actor | On-call Developer / DevOps Engineer chịu trách nhiệm xử lý sự cố khẩn cấp |
+| Thời điểm / bối cảnh | Khi nhận alert thông báo lỗi 5xx hoặc crash tăng đột biến trong kênh chat #dev-alerts |
+| Quy trình hiện tại (3–7 bước) | 1. Đọc tin nhắn cảnh báo trên Slack/Discord (2')<br>2. Mở dashboard Sentry đọc stack trace và thông điệp lỗi (8')<br>3. Mở log server (CloudWatch/Kibana) tra cứu ngữ cảnh kèm theo request ID (12')<br>4. Mở lịch sử deploy trên GitHub đối chiếu các commit mới nhất (8')<br>5. Xác định commit khả nghi và báo cho dev sở hữu commit (5') |
+| Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3: Tra cứu và chắp nối ngữ cảnh từ hàng nghìn dòng log server phân tán (12 phút) |
+| Impact (nếu không giải thì sao) | MTTR (Mean Time to Resolution) kéo dài trung bình >35 phút/lần; gián đoạn trải nghiệm người dùng; kỹ sư on-call bị áp lực lớn |
+| Success metric (baseline → target) | Baseline: 35 phút để tìm ra nguyên nhân ban đầu → Target: dưới 12 phút; độ chính xác khoanh vùng đúng commit >80% |
+| Phương án không dùng AI | Cấu hình log centralization chuẩn với correlation-id / trace-id xuyên suốt; gắn thẻ Release version tự động vào Sentry để biết ngay commit deploy |
+| Giả thuyết về AI (nếu có) | AI gom stack trace từ Sentry + sample logs liên quan và so khớp với git diff của bản release gần nhất để đưa ra nhận định commit nghi vấn cao nhất |
+| Cảm nhận nhanh | Workflow |
 
 Quy trình nháp hiện tại:
 
 ```text
+HIỆN TẠI — 35 phút/lần incident triage
 
+[1 Đọc alert Slack: 2'] 
+→ [2 Mở Sentry xem stack trace: 8'] 
+→ [3 Tra cứu server logs phân tán: 12'] ← BOTTLENECK
+→ [4 Đối chiếu git commit deploy gần nhất: 8'] 
+→ [5 Khoanh vùng thủ phạm & báo dev: 5']
 ```
 
 ### Problem Card #3
 
 | Trường | Nội dung |
 |---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Job Story | Khi Product Manager cần làm báo cáo tiến độ tuần vào chiều thứ Sáu, họ muốn có sẵn số lượng issue đã xử lý và rủi ro kỹ thuật từ dev, để gửi tổng kết cho cấp trên đúng hạn mà không phải nhắn tin giục từng dev |
+| Actor | Junior Product Manager / Scrum Master phụ trách báo cáo tiến độ sprint |
+| Thời điểm / bối cảnh | Chiều thứ Sáu hàng tuần trước buổi họp giao ban tuần với ban giám đốc |
+| Quy trình hiện tại (3–7 bước) | 1. Export số liệu Jira sprint (velocity, ticket done/in progress/bug) (10')<br>2. Kiểm tra các PR đã merge trên GitHub (10')<br>3. Nhắn tin hỏi dev về các blocker và lý do task trễ (20')<br>4. Viết narrative nhận định tình hình, rủi ro và kế hoạch tuần tới vào Google Docs (20')<br>5. Format và gửi email/Slack cho ban quản lý (5') |
+| Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3: Phải liên lạc phân tán hỏi từng dev để lấy thông tin blocker (20 phút) và bước 4 viết narrative (20 phút) |
+| Impact (nếu không giải thì sao) | Tốn 65 phút/tuần; báo cáo thường xuyên gửi trễ (3/5 tuần gửi sau 18h); thiếu thông tin rủi ro cốt lõi do dev bận không kịp trả lời |
+| Success metric (baseline → target) | Baseline: 65 phút/báo cáo → Target: dưới 20 phút; 100% báo cáo nộp đúng hạn trước 17h thứ Sáu |
+| Phương án không dùng AI | Template Jira tự động hóa dashboard; quy định bắt buộc dev ghi blocker vào trường cố định trên Jira trước 12h thứ Sáu |
+| Giả thuyết về AI (nếu có) | AI tự động tổng hợp thông tin status từ Jira và commit messages trên GitHub, nháp sẵn khung narrative nhận định để PM rà soát |
+| Cảm nhận nhanh | Workflow |
 
 Quy trình nháp hiện tại:
 
 ```text
+HIỆN TẠI — 65 phút/tuần
 
+[1 Export số liệu Jira: 10'] 
+→ [2 Kiểm tra PR GitHub: 10'] 
+→ [3 Nhắn tin hỏi blocker từ từng dev: 20'] ← BOTTLENECK 1
+→ [4 Viết narrative nhận định vào Docs: 20'] ← BOTTLENECK 2
+→ [5 Format & Gửi báo cáo: 5']
 ```
 
 ### Card muốn pitch nhất
 
-- Card số:
-- Vì sao:
-- Câu hỏi muốn nhóm phản biện:
+- Card số: Card #1 (Review Pull Request lớn)
+- Vì sao: Đây là nỗi đau thực tế diễn ra hàng ngày của đội ngũ kỹ thuật phần mềm; quy trình các bước rất rõ ràng; có baseline thời gian đo lường cụ thể (~58 phút); ranh giới giữa việc AI hỗ trợ đọc hiểu ngữ cảnh và con người ra quyết định approve/reject rất tách bạch.
+- Câu hỏi muốn nhóm phản biện: "Nếu áp dụng chính sách bắt buộc dev tách nhỏ PR dưới 200 dòng (No AI / Rule), liệu có giải quyết triệt để được vấn đề mà không cần đến AI không? Khi nào một PR thực sự không thể tách nhỏ?"
 
 ### AI đã phản biện card thế nào
 
 | Điểm yếu AI chỉ ra | Đồng ý? | Đã sửa gì |
 |---|---|---|
-| | | |
+| Baseline 58 phút/PR có phải chỉ là cảm tính cá nhân? | Đồng ý | Bấm giờ thật 3 lần review PR lớn gần nhất: 52 phút, 65 phút và 55 phút (trung bình ~57.3 phút) |
+| AI đọc code dễ bị ảo giác (hallucination), khen chê vu vơ hoặc sót lỗi bảo mật nghiêm trọng | Đồng ý | Đã chỉnh rõ boundary: AI tuyệt đối không thay thế con người bấm Approve hay tự động merge; AI chỉ làm nhiệm vụ tóm tắt luồng dữ liệu (data flow) và chỉ điểm các đoạn code nhạy cảm để con người review nhanh hơn |
+| Giải pháp Rule (ép dev tách PR < 200 dòng) có thể đã đủ, không cần AI | Đồng ý một phần | Làm rõ bối cảnh: Có những PR liên quan đến refactor schema database, thay đổi cấu trúc config toàn hệ thống hoặc nâng cấp thư viện lớn bắt buộc phải đi cùng nhau trong 1 commit/PR nguyên khối, không thể chia nhỏ được |
 
 ---
 
