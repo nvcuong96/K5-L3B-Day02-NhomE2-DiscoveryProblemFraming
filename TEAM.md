@@ -14,7 +14,7 @@
 | --: | ---------------- | ----------- | -------------------------------------------------------- | ------------------ |
 |   1 | Nguyễn Văn Cường | 2A202603750 | Phụ trách Problem Card, vẽ quy trình & đồng viết báo cáo | nvcuong96          |
 |   2 | Nguyễn Văn Hiếu  | 2A202603746 | Phụ trách Research giải pháp & tổng hợp dữ liệu          | nguyenvanhieu03746 |
-|   3 | Hải              | (Điền MSSV) | Người phản biện chính, kiểm chứng rủi ro                 | (GitHub)           |
+|   3 | Đoàn Công Hải    | 2A202603739 | Người phản biện chính, kiểm chứng rủi ro                 | haidoan2426 |
 |   4 | Lê Nguyễn Anh Khôi | 2A202603755 | Điều phối thời gian, chốt Problem Statement v1          | KN-16              |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
@@ -118,3 +118,28 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 **Điều mình học được từ phần nhóm:**
 - Nhận thức rõ ràng ranh giới giữa một sự bất tiện thoáng qua (minor inconvenience) và một nỗi đau vận hành cấp tính (acute pain) có tác động tài chính trực tiếp đến con người.
 - Thấu hiểu sâu sắc tư duy thiết kế AI hỗ trợ (Augmentation) thay vì tự động hóa hoàn toàn (Automation); trong các bài toán đối soát nghiệp vụ có nguy cơ gian lận, con người luôn phải là chốt chặn cuối cùng (Human-in-the-loop) để bảo đảm tính công bằng và an toàn ngân sách.
+
+### DoanCongHai-2A202603739
+
+**Phần việc phụ trách:**
+- Pitch 3 Problem Card cá nhân (Hợp đồng thuê nhà, Hoàn trả hàng e-commerce, Phân loại bệnh nhân cấp cứu).
+- Đảm nhận vai trò **Người phản biện chính** của nhóm: liên tục chất vấn các lỗ hổng về gian lận, tính khả thi dữ liệu và rủi ro ROI ở các bước thảo luận.
+- Đảm nhận vai trò **Người chính CP4 (Kiểm chứng)**: thu thập và phân tích dữ liệu thực tế từ các bài phóng sự điều tra của Báo *Tuổi Trẻ*, *Người Quan Sát* và các nghiên cứu khoa học ACM.
+- Hỗ trợ hoàn thiện Problem Statement v1 và rà soát tiêu chí đánh giá đầu ra AI cùng kịch bản pilot ở CP6.
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+- Đóng góp 3 candidate đầu vào cho nhóm (#2, #10, #11 trong Bảng Pitch chung).
+- Đặt câu hỏi phản biện then chốt cho đề tài của Khôi (#3): *"Nếu tài xế lợi dụng mẫu câu chuẩn để khai báo gian dối, làm thế nào để workflow AI kết hợp Rule kiểm tra chéo telemetry một cách khách quan mà không để lọt gian lận?"* — làm thay đổi hoàn toàn kiến trúc giải pháp của nhóm sang hướng Workflow có cờ kiểm tra chéo (Cross-check Flag).
+- Thu thập bằng chứng thực nghiệm từ 2 bài phóng sự điều tra và 1 công trình khoa học quốc tế (ACM CHI '15) chứng minh áp lực đánh giá 1 sao là nỗi đau sinh kế thật của tài xế.
+- Phản biện chỉ số Success Metric trong Problem Statement v0, thúc đẩy nhóm bổ sung 2 metric chặn chất lượng (tỷ lệ mở lại log < 20% và khiếu nại lần 2 giảm ≥ 40%) vào bản v1.
+- Tham gia xây dựng 4 tiêu chí đánh giá đầu ra AI và thiết lập 2 ngưỡng dừng định lượng cho đợt thử nghiệm pilot 2 tuần.
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+- Bảng Pitch (candidate #2, #10, #11) và các câu hỏi phản biện trong Mục 2.1 `group_report.md`.
+- Mục 3.1 (Assumption Map) và Mục 3.2 (Bằng chứng kiểm chứng Báo Tuổi Trẻ & ACM) trong `group_report.md`.
+- Phản biện Success Metric được ghi nhận trong Mục 5 và Mục 7 của `group_report.md`.
+- File cá nhân: `report/individual/2A202603739_DoanCongHai.md`.
+
+**Điều mình học được từ phần nhóm:**
+- Nhận thức rõ ràng bài học tránh bẫy "solution-first": không bắt đầu từ một công nghệ AI hào nhoáng rồi đi tìm bài toán, mà phải xuất phát từ nỗi đau quy trình nghiệp vụ có nút thắt nhận thức cụ thể.
+- Hiểu sâu sắc giá trị của mô hình Human-in-the-loop: trong các bài toán đối soát nghiệp vụ có nguy cơ gian lận và tác động đến tiền bạc, AI chỉ đóng vai trò trợ lý trích xuất và chỉ điểm mâu thuẫn (Augmentation), con người phải luôn là người nắm quyền phán quyết cuối cùng.
