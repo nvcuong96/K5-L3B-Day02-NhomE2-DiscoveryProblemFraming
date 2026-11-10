@@ -10,12 +10,12 @@
 
 ## Thành viên
 
-| STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
-|---:|---|---|---|---|
-| 1 | Nguyễn Văn Cường | 2A202603750 | Phụ trách Problem Card, vẽ quy trình & đồng viết báo cáo | nvcuong96 |
-| 2 | Hiếu | (Điền MSSV) | Phụ trách Research giải pháp & tổng hợp dữ liệu | (GitHub) |
-| 3 | Đoàn Công Hải | 2A202603739 | Người phản biện chính, kiểm chứng rủi ro | haidoan2426 |
-| 4 | Lê Nguyễn Anh Khôi | 2A202603755 | Điều phối thời gian, chốt Problem Statement v1 | KN-16 |
+| STT | Họ và tên        | MSSV        | Vai trò trong nhóm                                       | Tài khoản GitHub   |
+| --: | ---------------- | ----------- | -------------------------------------------------------- | ------------------ |
+|   1 | Nguyễn Văn Cường | 2A202603750 | Phụ trách Problem Card, vẽ quy trình & đồng viết báo cáo | nvcuong96          |
+|   2 | Nguyễn Văn Hiếu  | 2A202603746 | Phụ trách Research giải pháp & tổng hợp dữ liệu          | nguyenvanhieu03746 |
+|   3 | Đoàn Công Hải    | 2A202603739 | Người phản biện chính, kiểm chứng rủi ro                 | haidoan2426 |
+|   4 | Lê Nguyễn Anh Khôi | 2A202603755 | Điều phối thời gian, chốt Problem Statement v1          | KN-16              |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
@@ -23,15 +23,15 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 
 ## Phân công theo checkpoint
 
-| Checkpoint | Người chính | Người hỗ trợ | Sản phẩm |
-|---|---|---|---|
-| CP3 — Hội tụ nhóm | Cường | Khôi | Cluster, cây OST, bảng chấm điểm |
-| CP4 — Kiểm chứng | Hải | Hiếu | Assumption map, tổng hợp báo chí điều tra & nghiên cứu ACM |
-| CP4 — Research | Hiếu | Cường | Bảng research giải pháp có link (Uber, Zendesk) |
-| CP5 — Quy trình trước/sau | Cường | Khôi | Quy trình 6 bước → 4 bước + bảng before/after |
-| CP5 — Problem Statement v0 | Khôi | Cường | Problem Statement v0 |
-| CP6 — Mức can thiệp + Problem Statement v1 | Cường | Hải | Ma trận độ mơ hồ, AI Canvas, 4 tiêu chí eval, Problem Statement v1 |
-| CP6 — Quyết định | Khôi | Cả nhóm | 4 rủi ro + quyết định Go phạm vi nhỏ & ngưỡng dừng |
+| Checkpoint                                 | Người chính | Người hỗ trợ | Sản phẩm                                                           |
+| ------------------------------------------ | ----------- | ------------ | ------------------------------------------------------------------ |
+| CP3 — Hội tụ nhóm                          | Cường       | Khôi         | Cluster, cây OST, bảng chấm điểm                                   |
+| CP4 — Kiểm chứng                           | Hải         | Hiếu         | Assumption map, tổng hợp báo chí điều tra & nghiên cứu ACM         |
+| CP4 — Research                             | Hiếu        | Cường        | Bảng research giải pháp có link (Uber, Zendesk)                    |
+| CP5 — Quy trình trước/sau                  | Cường       | Khôi         | Quy trình 6 bước → 4 bước + bảng before/after                      |
+| CP5 — Problem Statement v0                 | Khôi        | Cường        | Problem Statement v0                                               |
+| CP6 — Mức can thiệp + Problem Statement v1 | Cường       | Hải          | Ma trận độ mơ hồ, AI Canvas, 4 tiêu chí eval, Problem Statement v1 |
+| CP6 — Quyết định                           | Khôi        | Cả nhóm      | 4 rủi ro + quyết định Go phạm vi nhỏ & ngưỡng dừng                 |
 
 ## Cá nhân
 
@@ -40,26 +40,58 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 ### NguyenVanCuong-2A202603750
 
 **Phần việc phụ trách:**
+
 - Pitch 3 Problem Card cá nhân (Khám bệnh viện, Xử lý ticket dev, Hóa đơn AP).
 - Tham gia gom nhóm Cluster, xây dựng cây OST và tham gia thảo luận chấm điểm shortlist chọn candidate #3.
 - Xây dựng quy trình trước/sau (6 bước hiện tại → 4 bước tương lai), thiết lập ranh giới boundary và phương án quay về.
 - Cùng nhóm hoàn thiện bảng AI Canvas và 4 tiêu chí đánh giá đầu ra AI cho Problem Statement v1.
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
 - Đóng góp 3 candidate đầu vào cho nhóm (gồm candidate #4, #5, #8 trong bảng Pitch chung).
-- Đặt câu hỏi phản biện sâu cho bài của Hải (*Hơn gì ChatGPT*) và bài của Khôi (*Dữ liệu OBD-II mơ hồ thì AI gợi ý phụ tùng có sai lệch không*).
+- Đặt câu hỏi phản biện sâu cho bài của Hải (_Hơn gì ChatGPT_) và bài của Khôi (_Dữ liệu OBD-II mơ hồ thì AI gợi ý phụ tùng có sai lệch không_).
 - Vẽ sơ đồ và tính toán thời gian chi tiết cho quy trình hiện tại (22 phút) và tương lai (5–6 phút) trong Mục 4.
 - Đề xuất phương án quay về (Fallback) khi AI thiếu độ tin cậy.
 
 **Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
 - Bảng Pitch (candidate #4, #5, #8) và câu hỏi phản biện trong Mục 2.1 `group_report.md`.
 - Mục 2.2 Cluster và Mục 2.3 Cây OST.
 - Mục 4.1, 4.2 và 4.3 trong `group_report.md`.
 - File cá nhân: `report/individual/2A20260375_NguyenVanCuong.md`.
 
 **Điều mình học được từ phần nhóm:**
+
 - Hiểu được sự khác biệt cốt lõi giữa "Giải pháp trá hình" (Solution-first) và "Vấn đề/Nhu cầu thật" (Opportunity) khi xây dựng cây OST.
 - Nhận ra rằng trong các bài toán vận hành phức tạp, AI không nên thay thế con người hoàn toàn mà cần thiết kế theo hướng Hỗ trợ (Augmentation) với ranh giới con người kiểm duyệt (Human-in-the-loop) để phòng ngừa gian lận.
+
+### NguyenVanHieu-2A202603746
+
+**Phần việc phụ trách:**
+
+- Pitch 3 Problem Card cá nhân (Tối ưu hành trình di chuyển sinh viên 30km buýt vs xe máy, Đọc hiểu bài báo học thuật tiếng Anh, Lọc thông báo nhóm chat).
+- Phụ trách chính phần Research giải pháp công nghệ đã có (Uber Michelangelo, Zendesk AI) và tổng hợp bằng chứng khoa học quốc tế (ACM CHI '15).
+- Tham gia phân loại Cluster, xây dựng cây OST và thảo luận chấm điểm shortlist chọn candidate #3.
+- Cùng nhóm xây dựng 4 tiêu chí đánh giá (eval metrics) cho LLM và xác lập ranh giới (boundary) trong Problem Statement v1.
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- Đóng góp 3 candidate đầu vào cho nhóm (#1, #9, #12 trong bảng Pitch chung).
+- Đặt câu hỏi phản biện sâu về rào cản độ trễ API real-time cho bài của Khôi (#6 Cứu hộ pin xe điện) và ưu thế so với ChatGPT cho bài của Hải (#2 Hợp đồng thuê nhà).
+- Tổng hợp và đối chuẩn chuyên sâu 2 giải pháp công nghệ hàng đầu: _Uber Michelangelo Platform_ (học cách đối soát telemetry) và _Zendesk AI_ (chỉ ra khoảng trống không hiểu log GPS).
+- Đóng góp luận cứ cho Mục 3.2, 3.3 và Mục 7 trong `group_report.md`.
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+- Bảng Pitch (candidate #1, #9, #12) và câu hỏi phản biện trong Mục 2.1 `group_report.md`.
+- Mục 3.2 (Bằng chứng kiểm chứng ACM) và Mục 3.3 (Bảng Research giải pháp Uber Michelangelo, Zendesk AI).
+- Mục 7 (Tiêu chí đánh giá chất lượng đầu ra AI).
+- File cá nhân: `report/individual/2A202603746_NguyenVanHieu.md`.
+
+**Điều mình học được từ phần nhóm:**
+
+- Nhận thức sâu sắc rằng bài toán công nghệ phải bắt nguồn từ nỗi đau vận hành có thật và đo lường được (như 22 phút đối soát/ticket trước giờ chốt thưởng), tránh sa vào bẫy "bệnh cầm búa đi tìm đinh" (solution-first).
+- Hiểu rõ ranh giới giữa Augmentation (hỗ trợ con người) và Automation (tự động hóa hoàn toàn): trong các bài toán rủi ro cao về tài chính/thưởng phạt, AI chỉ nên đóng vai trò trợ lý tóm tắt bằng chứng, quyền phán quyết cuối cùng phải luôn thuộc về con người (Human-in-the-loop).
 
 ### LeNguyenAnhKhoi-2A202603755
 
