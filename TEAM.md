@@ -13,8 +13,8 @@
 | STT | Họ và tên        | MSSV        | Vai trò trong nhóm                                       | Tài khoản GitHub   |
 | --: | ---------------- | ----------- | -------------------------------------------------------- | ------------------ |
 |   1 | Nguyễn Văn Cường | 2A202603750 | Phụ trách Problem Card, vẽ quy trình & đồng viết báo cáo | nvcuong96          |
-|   2 | Nguyễn Văn Hiếu  | 2A202603746 | Phụ trách Research giải pháp & tổng hợp dữ liệu          | nguyenvanhieu03746 |
-|   3 | Đoàn Công Hải    | 2A202603739 | Người phản biện chính, kiểm chứng rủi ro                 | haidoan2426 |
+|   2 | Nguyễn Văn Hiếu  | 2A202603746 | Phụ trách Research giải pháp & tổng hợp dữ liệu          | lunaHieu  |
+|   3 | Đoàn Công Hải    | 2A202603739 | Người phản biện chính, kiểm chứng rủi ro                 | rawser246  |
 |   4 | Lê Nguyễn Anh Khôi | 2A202603755 | Điều phối thời gian, chốt Problem Statement v1          | KN-16              |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
